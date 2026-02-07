@@ -105,7 +105,38 @@ def user_control():
         brain.screen.print(": Ramp Speed")
 
 def autonomous(): #calibrate the inertial sensor
+    brain.screen.print("e")
+    # Calibrate inertial
     inertial_1.calibrate()
+    while   inertial_1.is_calibrating():
+        wait(20, MSEC)
+
+    # --------- SECTOR 1: MIDGOAL ---------
+    drivetrain.drive_for(FORWARD, 1219, MM, 190, RPM)
+
+    # --------- SECTOR 2: DISPENSER ---------
+    drivetrain.drive_for(REVERSE, 609.6, MM, 190, RPM)
+    drivetrain.turn_for(90, DEGREES)
+    drivetrain.drive_for(FORWARD, 609.6, MM, 190, RPM)
+    drivetrain.turn_for(180, DEGREES)
+    drivetrain.drive_for(FORWARD, 609.6, MM, 190, RPM)
+
+    wait(3000, MSEC)
+
+    # --------- SECTOR 3: LONG GOAL ---------
+    drivetrain.drive_for(REVERSE, 1219, MM, 190, RPM)
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+    '''inertial_1.calibrate()
     while inertial_1.is_calibrating():
         wait(20, MSEC)
 
@@ -137,7 +168,7 @@ def autonomous(): #calibrate the inertial sensor
     #intake_motor.spin(FORWARD, 100, RPM) #start the intake to help push the balls into the long goa
     #wait(1500, MSEC) #wait 1.5 seconds to output the balls into the long goal
     #output_motor.stop() #stop the output
-    #intake_motor.stop() #stop the intake
+    #intake_motor.stop() #stop the intake'''
 
 
 

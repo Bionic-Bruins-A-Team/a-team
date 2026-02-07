@@ -1,4 +1,4 @@
-from vex import *
+'''from vex import *
 import math
 
 brain = Brain()
@@ -22,7 +22,7 @@ motor_group_2 = MotorGroup(motor_1b, motor_2b, motor_3b)
 controller_1 = Controller()
 
 # Inertial Sensor
-inertial_1 = Inertial(Ports.PORT7)
+# inertial_1 = Inertial(Ports.PORT7)
 
 # Intake Motors
 motor_intake_1 = Motor(Ports.PORT8)
@@ -30,23 +30,31 @@ motor_intake_2 = Motor(Ports.PORT9)
 
 def autonomous():
     # Manually configuring drivetrain
-    drivetrain = SmartDrive(motor_group_1,motor_group_2,inertial_1)
+    # drivetrain = SmartDrive(motor_group_1,motor_group_2,inertial_1)
     # Calibrate inertial sensor
-    inertial_1.calibrate()
-    wait(50, MSEC)
-    # Robot instructions
-    drivetrain.drive_for(FORWARD,Insert_Distance,MM)
-    drivetrain.turn(RIGHT,Insert_Degrees,10,VelocityUnits.DPS)
-    wait(Insert_Time,MSEC)
-    drivetrain.drive_for(FORWARD,Insert_Distance,MM)
-    drivetrain.turn(RIGHT,Insert_Degrees,10,VelocityUnits.DPS)
-    drivetrain.wait(Insert Time,MSEC)
-    motor_intake_1.spin(FORWARD, 100)
-    drivetrain.drive_for(FORWARD,Insert_Distance,MM)
-    drivetrain.turn(RIGHT,Insert_Degrees,10,VelocityUnits.DPS)
-    drivetrain.wait(Insert Time,MSEC)
-    motor_intake_1.stop()
-    drivetrain.drive_for(REVERSE,Insert_Distance,MM)
-    motor_intake_2.spin(FORWARD, 100)
-    wait(2000,MSEC)
-    motor_intake_2.stop()
+    # inertial_1.calibrate()
+    # while inertial_1.is_calibrating():
+    #     wait(20, MSEC)
+
+    motor_group_1.spin(FORWARD,60,PERCENT)
+    motor_group_2.spin(FORWARD,60,PERCENT)
+    wait(500, MSEC)
+    motor_group_1.spin(FORWARD,0,PERCENT)
+    motor_group_2.spin(FORWARD,0,PERCENT)
+
+    # # Robot instructions
+    # drivetrain.drive_for(FORWARD,Insert_Distance,MM)
+    # drivetrain.turn(RIGHT,Insert_Degrees,10,VelocityUnits.DPS)
+    # wait(Insert_Time,MSEC)
+    # drivetrain.drive_for(FORWARD,Insert_Distance,MM)
+    # drivetrain.turn(RIGHT,Insert_Degrees,10,VelocityUnits.DPS)
+    # drivetrain.wait(Insert Time,MSEC)
+    # motor_intake_1.spin(FORWARD, 100)
+    # drivetrain.drive_for(FORWARD,Insert_Distance,MM)
+    # drivetrain.turn(RIGHT,Insert_Degrees,10,VelocityUnits.DPS)
+    # drivetrain.wait(Insert Time,MSEC)
+    # motor_intake_1.stop()
+    # drivetrain.drive_for(REVERSE,Insert_Distance,MM)
+    # motor_intake_2.spin(FORWARD, 100)
+    # wait(2000,MSEC)
+    # motor_intake_2.stop()'''
